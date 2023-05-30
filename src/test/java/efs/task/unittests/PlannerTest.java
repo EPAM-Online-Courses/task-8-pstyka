@@ -11,21 +11,27 @@ public class PlannerTest {
 
     @BeforeEach
     void initializate(){
-        plan = new Planner();
+        this.plan = new Planner();
     }
 
     @Test
     void shouldCalculateDailyCaloriesDemand(){
         for(ActivityLevel lvl : ActivityLevel.values()){
+            //given
             int correct = TestConstants.CALORIES_ON_ACTIVITY_LEVEL.get(lvl);
-            int calculated = plan.calculateDailyCaloriesDemand(TestConstants.TEST_USER,lvl);
+            //when
+            int calculated = this.plan.calculateDailyCaloriesDemand(TestConstants.TEST_USER,lvl);
+            //then
             assertEquals(correct, calculated);
         }
     }
     @Test
     void shouldCalculateDailyIntakeForTEST_USER(){
+        //given
         DailyIntake correct = TestConstants.TEST_USER_DAILY_INTAKE;
-        DailyIntake calculated = plan.calculateDailyIntake(TestConstants.TEST_USER);
+        //when
+        DailyIntake calculated = this.plan.calculateDailyIntake(TestConstants.TEST_USER);
+        //then
         assertEquals(correct.getCalories(), calculated.getCalories());
         assertEquals(correct.getCarbohydrate(), calculated.getCarbohydrate());
         assertEquals(correct.getFat(), calculated.getFat());
