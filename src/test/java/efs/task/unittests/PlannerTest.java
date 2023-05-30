@@ -16,7 +16,9 @@ public class PlannerTest {
 
     @Test
     void shouldCalculateDailyCaloriesDemand(){
-        for(ActivityLevel lvl : ActivityLevel.values()){
+        ActivityLevel[] value = ActivityLevel.values();
+        for(int i = 0; i < value.length; ++i) {
+            ActivityLevel lvl = value[i];
             //given
             int correct = TestConstants.CALORIES_ON_ACTIVITY_LEVEL.get(lvl);
             //when
