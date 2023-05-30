@@ -7,13 +7,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class PlannerTest {
     private Planner plan;
     @BeforeEach
     void initializate(){
-        this.plan = new Planner();
+        plan = new Planner();
     }
     @ParameterizedTest
     @EnumSource(ActivityLevel.class)
